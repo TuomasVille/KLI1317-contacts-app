@@ -18,13 +18,22 @@ import {
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {AvatarModule} from 'ngx-avatar';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ContactDetailComponent } from './contact/contact-detail/contact-detail.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  {path: 'contacts', component: ContactListComponent},
+  {path: 'contacts/new', component: ContactDetailComponent},
+  {path: '', redirectTo: '/contacts', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
     ContactListItemComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +47,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FlexLayoutModule,
     MatCardModule,
     AvatarModule,
-    NgxPaginationModule
-
+    NgxPaginationModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]

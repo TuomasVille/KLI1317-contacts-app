@@ -9,3 +9,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.app-fab {
+  position: absolute !important;
+  bottom: 20px;
+  right: 20px;
+}
+
+.pointer {
+  cursor: pointer;
+}

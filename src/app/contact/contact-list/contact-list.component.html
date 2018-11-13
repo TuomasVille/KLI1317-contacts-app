@@ -5,4 +5,12 @@
                          (contactSelect)="onContactSelect(contact)">
   </app-contact-list-item>
 </div>
-<pagination-controls (pageChange)="p = $event" fxLayoutAlign="center center" class="my-pagination"></pagination-controls>
+<div>
+  <pagination-controls (pageChange)="p = $event" fxLayoutAlign="center center" class="my-pagination"></pagination-controls>
+</div>
+<div>
+  <button mat-fab class="app-fab" (click)="onContactCreate()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
