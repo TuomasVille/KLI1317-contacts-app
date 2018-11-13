@@ -1,0 +1,17 @@
+.card-padding {
+  padding-top: 50px;
+}
+
+pagination-controls /deep/ .ngx-pagination {
+  padding: 0;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 80px;
+}
+
+pagination-controls /deep/ .ngx-pagination a, .ngx-pagination{
+  border-radius: 80px;
+}

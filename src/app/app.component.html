@@ -1,6 +1,19 @@
 <mat-sidenav-container class="app-sidenav-container">
   <mat-sidenav #sidenav [mode]="mode.value" [opened]="false" class="app-sidenav">
-    <p>Sidenav content</p>
+    <div>
+      <div fxLayout="column" fxLayoutAlign="center center" class="sidenav-user-area">
+        <div>
+          <mat-icon class="sidenav-avatar background" fxLayoutAlign="center center">account_circle</mat-icon>
+        </div>
+        <h3 fxLayoutAlign="center center">Tuomas Käyhty</h3>
+      </div>
+    </div>
+    <div class="link-style">
+    <span>In GitHub</span>
+    <a href="https://github.com/TuomasVille/KLI1317-contacts-app">
+      <img src="../assets/img/GitHub-Mark-32px.png">
+    </a>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content class="app-sidenav-content">
     <app-toolbar (menuClick)="sidenav.toggle()"></app-toolbar>

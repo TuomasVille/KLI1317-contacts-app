@@ -1,14 +1,14 @@
 .nav div{
   height: 3px;
-  background: #FFFFFF;
-  margin: 5px 0;
+  background: #000000;
+  margin: 4px 0;
   border-radius: 24px;
   transition: .3s;
 }
 
 .nav {
   display: block;
-  width: 30px;
+  width: 25px;
 }
 
 .one {
@@ -24,5 +24,15 @@
 }
 
 .nav:hover div {
-  width: 30px;
+  width: 25px;
+}
+
+.background {
+  background-color: #FFFFFF;
+}
+
+.menu-button {
+  background-color: #FFFFFF;
+  border: none;
+  box-shadow: none;
 }

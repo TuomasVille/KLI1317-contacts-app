@@ -12,3 +12,34 @@
 .app-sidenav {
   width: 200px;
 }
+
+.app-container {
+  height: 100%;
+  overflow: auto;
+}
+
+.sidenav-avatar {
+  font-size: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.sidenav-user-area {
+  background-image: url("../assets/img/background.png");
+  padding: 8px;
+}
+
+.sidenav-content {
+  overflow: hidden;
+}
+
+.link-style {
+  display:flex;
+  padding-left: 5px;
+  padding-top: 10px;
+}
+.link-style * {
+  padding-left: 5px;
+  margin-top:auto;
+  margin-bottom:auto;
+}
