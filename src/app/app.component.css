@@ -29,10 +29,6 @@
   padding: 8px;
 }
 
-.sidenav-content {
-  overflow: hidden;
-}
-
 .link-style {
   display:flex;
   padding-left: 5px;

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
+import {ContactLocalStorageService} from './contact-local-storage.service';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ export class ContactService {
 
   contacts: Contact[];
 
-  constructor() {
+  constructor( private contactLocalStorage: ContactLocalStorageService ) {
     this.contacts = [];
     this.contacts.push(new Contact(1, 'First', 'Contact', 'FirstStreet 1',
       'first.contact@email.com', '+358 12 1234'));
@@ -26,10 +27,22 @@ export class ContactService {
   }
 
   getContacts(): Contact[] {
-    return this.contacts;
+    return this.contactLocalStorage.getContacts();
+  }
+
+  getContactById(id: string): Contact {
+    return this.contactLocalStorage.getContactById(id);
   }
 
   deleteContact(contact: Contact) {
-        this.contacts.splice(this.contacts.indexOf(contact), 1);
+    this.contactLocalStorage.deleteContact(contact);
+  }
+
+  createContact(contact: Contact) {
+    this.contactLocalStorage.createContact(contact);
+  }
+
+  editContact(contact: Contact) {
+    return this.contactLocalStorage.editContact(contact);
   }
 }

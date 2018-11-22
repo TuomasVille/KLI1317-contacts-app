@@ -1,0 +1,10 @@
+.div-style mat-card {
+  width: 600px;
+  height: 400px;
+}
+
+.div-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,7 +1,7 @@
 <div (click)="onContactSelect()">
   <mat-card class="card-style">
     <mat-card-actions fxLayoutAlign="end">
-        <img src="../../../assets/img/outline_create_black_24dp.png" class="pointer">
+        <img src="../../../assets/img/outline_create_black_24dp.png" (click)="onEdit()" class="pointer">
     </mat-card-actions>
     <mat-card-title><ngx-avatar name="{{contact.firstName}} {{contact.lastName}}" fxLayoutAlign="center center"></ngx-avatar></mat-card-title>
     <mat-card-content>
@@ -16,7 +16,7 @@
     <mat-card-content fxLayoutAlign="center center"><img src="../../../assets/img/outline_phone_black_24dp.png">
       {{contact.phoneNumber}} </mat-card-content>
     <mat-card-actions fxLayoutAlign="end">
-      <img src="../../../assets/img/outline_delete_black_24dp.png" (click)="onDelete()" class="pointer">
+      <img src="../../../assets/img/outline_delete_black_24dp.png" (click)="onDelete(contact)" class="pointer">
     </mat-card-actions>
   </mat-card>
 </div>

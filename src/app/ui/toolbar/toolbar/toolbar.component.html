@@ -1,10 +1,4 @@
 <mat-toolbar class="background mat-elevation-z1">
-  <button mat-flat-button (click)="onMenuClick()" value="push" color="primary" class="menu-button">
-  <a class="nav">
-      <div class="one"></div>
-      <div class="two"></div>
-      <div class="three"></div>
-  </a>
-  </button>
-  <span>Contacts Application</span>
+  <button mat-icon-button (click)="mainAction.runAction()" value="push"><mat-icon class="menu-button">{{mainAction.icon}}</mat-icon></button>
+  <span>{{options.title}}</span>
 </mat-toolbar>
