@@ -2,7 +2,7 @@
      fxLayout.lt-md="column" fxLayout.xs="column" class="card-padding">
   <app-contact-list-item *ngFor="let contact of contacts | paginate: { itemsPerPage: 4, currentPage: p}"
                          [contact]="contact"
-                         (contactSelect)="onContactSelect(contact)">
+                         (contactDeleted)="onContactDeleted($event)">
   </app-contact-list-item>
 </div>
 <div>

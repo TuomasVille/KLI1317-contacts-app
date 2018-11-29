@@ -23,6 +23,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {ToolbarService} from './ui/toolbar/toolbar.service';
 import {ContactLocalStorageService} from './contact/service/contact-local-storage.service';
+import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     ContactListComponent,
     ContactListItemComponent,
     ToolbarComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
       ToolbarService,
       ContactLocalStorageService
     ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule {
 }

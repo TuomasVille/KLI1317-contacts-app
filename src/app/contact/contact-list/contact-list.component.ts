@@ -20,15 +20,22 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() {
     this.toolbar.setToolbarOptions(new ToolbarOptions('menu', 'Contacts Application'));
-    this.contacts = this.contactService.getContacts();
+    // this.contacts = this.contactService.getContacts();
+    this.loadContacts();
   }
 
-  onContactSelect(contact: Contact) {
-    console.log('Contact selected:' + contact.id);
+  onContactDeleted(contact: Contact) {
+    this.loadContacts();
   }
 
   onContactCreate(): void {
     console.log('Create clicked!');
     this.router.navigate(['/contacts/new']);
+  }
+
+  loadContacts() {
+    this.contactService.getContacts().subscribe(result => {
+      this.contacts = result;
+    });
   }
 }
