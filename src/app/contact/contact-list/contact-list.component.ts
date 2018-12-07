@@ -13,6 +13,7 @@ import {ToolbarService} from '../../ui/toolbar/toolbar.service';
 export class ContactListComponent implements OnInit {
 
   contacts: Contact[];
+  p:any;
 
   constructor(private contactService: ContactService, private router: Router, private toolbar: ToolbarService) {
     this.contacts = [];

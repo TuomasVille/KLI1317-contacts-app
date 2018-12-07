@@ -4,7 +4,7 @@ import {ContactService} from '../service/contact.service';
 import {ToolbarService} from '../../ui/toolbar/toolbar.service';
 import {ToolbarOptions} from '../../ui/toolbar/toolbar-options';
 import {Router} from '@angular/router';
-import {MatDialog, MatSnackBar} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatSnackBar} from '@angular/material';
 import {ConfirmDialogComponent} from '../../ui/confirm-dialog/confirm-dialog.component';
 
 @Component({
@@ -32,12 +32,26 @@ export class ContactListItemComponent implements OnInit {
   }
 
   removeContact() {
-    this.dialog.open(ConfirmDialogComponent);
-    this.contactService.deleteContact(this.contact).subscribe(() => {
-      this.snackBar.open('Contact removed!', '', {
-        duration: 3000
-      });
-      this.contactDeleted.emit(this.contact);
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.contactService.deleteContact(this.contact).subscribe(() => {
+          this.snackBar.open('Contact removed!', '', {
+            duration: 3000
+          });
+          this.contactDeleted.emit(this.contact);
+        });
+      }
     });
+  }
+
+  navigateToMap() {
+    this.router.navigate(['contacts/map', {address: this.contact.address, city: this.contact.city}]);
   }
 }

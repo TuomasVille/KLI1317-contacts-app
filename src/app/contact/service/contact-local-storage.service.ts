@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
+import {ContactProvider} from '../interfaces/contact-provider';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactLocalStorageService {
+export class ContactLocalStorageService implements ContactProvider {
 
   localStorageKey = 'contacts-app';
   contacts: Contact[];
@@ -17,20 +19,21 @@ export class ContactLocalStorageService {
     this.contacts = JSON.parse(storageElement);
   }
 
-  getContacts(): Contact[] {
-    return this.contacts;
+  get(): Observable<Contact[]> {
+    return of(this.contacts);
   }
 
-  getContactById(id: string): Contact {
+  getById(id: string): Observable<Contact> {
     let copy: Contact;
     for (const contact of this.contacts) {
       if (contact.id === Number(id)) {
         copy = Object.assign({}, contact);
-        return copy;
+        return of (contact);
       }
     }
   }
-  createContact(contact: Contact) {
+
+  create(contact: Contact): Observable<Contact> {
     let lastId = 1;
     if (this.contacts.length > 0) {
       lastId = this.contacts[this.contacts.length - 1].id;
@@ -40,9 +43,11 @@ export class ContactLocalStorageService {
     this.contacts.push(contact);
     localStorage.removeItem(this.localStorageKey);
     localStorage.setItem(this.localStorageKey, JSON.stringify(this.contacts));
+
+    return of(contact);
   }
 
-  deleteContact(contact: Contact) {
+  delete(contact: Contact): Observable<any> {
     for (let i = 0; i < this.contacts.length; i++) {
       if (contact.id === this.contacts[i].id) {
         this.contacts.splice(i, 1);
@@ -50,13 +55,16 @@ export class ContactLocalStorageService {
     }
     localStorage.removeItem(this.localStorageKey);
     localStorage.setItem(this.localStorageKey, JSON.stringify(this.contacts));
+
+    return of(contact);
   }
 
-  editContact(contact: Contact) {
+  edit(contact: Contact): Observable<Contact> {
     for (let i = 0; i < this.contacts.length; i++) {
       if (contact.id === this.contacts[i].id) {
         this.contacts[i] = contact;
       }
     }
+    return of(contact);
   }
 }

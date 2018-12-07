@@ -39,3 +39,10 @@
   margin-top:auto;
   margin-bottom:auto;
 }
+
+.image-style {
+  width: 96px;
+  height: 96px;
+  border-radius: 80px;
+  margin-top: 20px;
+}

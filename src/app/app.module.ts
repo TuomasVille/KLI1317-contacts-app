@@ -24,12 +24,19 @@ import {FormsModule} from '@angular/forms';
 import {ToolbarService} from './ui/toolbar/toolbar.service';
 import {ContactLocalStorageService} from './contact/service/contact-local-storage.service';
 import { ConfirmDialogComponent } from './ui/confirm-dialog/confirm-dialog.component';
+import {ContactProvider} from './contact/interfaces/contact-provider';
+import {ContactHttpService} from './contact/service/contact-http.service';
+import {environment} from '../environments/environment';
+import { ContactMapComponent } from './contact/contact-map/contact-map.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
   {path: 'contacts/new', component: ContactDetailComponent},
   {path: 'contacts/edit/:id', component: ContactDetailComponent},
-  {path: '', redirectTo: '/contacts', pathMatch: 'full'}
+  {path: 'contacts/map', component: ContactMapComponent},
+  {path: '', redirectTo: '/contacts', pathMatch: 'full'},
+  {path: '**', redirectTo: '/contacts'}
 ];
 
 @NgModule({
@@ -39,7 +46,9 @@ const appRoutes: Routes = [
     ContactListItemComponent,
     ToolbarComponent,
     ContactDetailComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ContactMapComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
@@ -62,9 +71,9 @@ const appRoutes: Routes = [
   ],
   providers:
     [ContactService,
-      Location,
       ToolbarService,
-      ContactLocalStorageService
+      ContactLocalStorageService,
+      {provide: ContactProvider, useClass: environment.apiEnabled ? ContactHttpService : ContactLocalStorageService}
     ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmDialogComponent]

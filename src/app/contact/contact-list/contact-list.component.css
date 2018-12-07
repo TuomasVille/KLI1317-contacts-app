@@ -15,3 +15,26 @@ pagination-controls /deep/ .ngx-pagination {
 pagination-controls /deep/ .ngx-pagination a, .ngx-pagination{
   border-radius: 80px;
 }
+
+.search-form {
+  width: 100%;
+  border-radius: 80px;
+  margin-left: 10%;
+}
+
+.search-full-width {
+  width: 20%;
+}
+
+.search-position {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.icon-position {
+  margin-top: 20px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #cdcdcd !important;
+}

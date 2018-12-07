@@ -10,13 +10,16 @@
       </h4>
     </mat-card-content>
     <mat-card-content fxLayoutAlign="center center"><img src="../../../assets/img/outline_place_black_24dp.png">
-      {{contact.address}} </mat-card-content>
+      {{contact.address}}, {{contact.postalCode}} </mat-card-content>
+    <mat-card-content fxLayoutAlign="center center"><img src="../../../assets/img/outline_home_black_24dp.png">
+      {{contact.city}} </mat-card-content>
     <mat-card-content fxLayoutAlign="center center"><img src="../../../assets/img/outline_email_black_24dp.png">
       {{contact.email}} </mat-card-content>
     <mat-card-content fxLayoutAlign="center center"><img src="../../../assets/img/outline_phone_black_24dp.png">
       {{contact.phoneNumber}} </mat-card-content>
     <mat-card-actions fxLayoutAlign="end">
-      <img src="../../../assets/img/outline_delete_black_24dp.png" (click)="removeContact(contact)" class="pointer">
+      <img src="../../../assets/img/outline_place_black_24dp.png" (click)="navigateToMap()" class="pointer" >
+      <img src="../../../assets/img/outline_delete_black_24dp.png" (click)="removeContact()" class="pointer">
     </mat-card-actions>
   </mat-card>
 </div>
