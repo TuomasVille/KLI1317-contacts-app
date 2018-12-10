@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ContactService} from '../service/contact.service';
 import {Contact} from '../contact';
@@ -9,7 +9,8 @@ import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
-  styleUrls: ['./contact-detail.component.css']
+  styleUrls: ['./contact-detail.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContactDetailComponent implements OnInit {
 
