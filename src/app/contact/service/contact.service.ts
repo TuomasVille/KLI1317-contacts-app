@@ -15,6 +15,10 @@ export class ContactService {
     this.contacts = [];
   }
 
+  searchContact(name: string): Observable<Contact[]> {
+    return this.contactProvider.search(name);
+  }
+
   getContacts(): Observable<Contact[]> {
     return this.contactProvider.get();
   }

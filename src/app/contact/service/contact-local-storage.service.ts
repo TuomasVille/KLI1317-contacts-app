@@ -28,7 +28,7 @@ export class ContactLocalStorageService implements ContactProvider {
     for (const contact of this.contacts) {
       if (contact.id === Number(id)) {
         copy = Object.assign({}, contact);
-        return of (contact);
+        return of(contact);
       }
     }
   }
@@ -66,5 +66,17 @@ export class ContactLocalStorageService implements ContactProvider {
       }
     }
     return of(contact);
+  }
+
+  search(name: string): Observable<Contact[]> {
+    if (name) {
+      const value = this.contacts.filter(n =>
+        n.firstName.toLocaleLowerCase().includes(name)
+      );
+      return of(value);
+    }
+    if (!name) {
+      return this.get();
+    }
   }
 }

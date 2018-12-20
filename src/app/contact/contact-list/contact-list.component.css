@@ -2,17 +2,17 @@
   padding-top: 50px;
 }
 
-pagination-controls /deep/ .ngx-pagination {
+pagination-controls .ngx-pagination {
   padding: 0;
 }
 
-.my-pagination /deep/ .ngx-pagination .current {
+.my-pagination .ngx-pagination .current {
   background-color: #000000;
-  color: #FFFFFF;
+  color: #F7F7F7;
   border-radius: 80px;
 }
 
-pagination-controls /deep/ .ngx-pagination a, .ngx-pagination{
+pagination-controls .ngx-pagination a, .ngx-pagination{
   border-radius: 80px;
 }
 
@@ -31,18 +31,31 @@ pagination-controls /deep/ .ngx-pagination a, .ngx-pagination{
 .search-position {
   margin-top: 3%;
   text-align: center;
+  color: #000000;
 }
 
 .icon-position {
-  margin-top: 20px;
+  position: relative;
+  top: 6px;
+  color: #000000;
 }
 
 .mat-form-field-label{
   color: #000000 !important;
 }
 .mat-form-field-underline {
-  background-color: #000000 !important;;
+  background-color: #000000 !important;
 }
 .mat-form-field-ripple {
-  background-color: #000000 !important;
+  background-color: #000000!important;
+}
+
+.mat-input-element {
+  caret-color: #000000 !important;
+}
+
+@media (max-width: 420px) {
+  .search-full-width {
+    width: 60%;
+  }
 }

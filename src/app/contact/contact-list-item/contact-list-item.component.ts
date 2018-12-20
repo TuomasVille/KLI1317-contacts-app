@@ -24,7 +24,7 @@ export class ContactListItemComponent implements OnInit {
 
   ngOnInit() {
     this.toolbar.setToolbarOptions(new ToolbarOptions('menu', 'Contacts Application'));
-    console.log(this.contact);
+    // console.log(this.contact);
   }
 
   onEdit() {

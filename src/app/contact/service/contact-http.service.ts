@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Contact} from '../contact';
 import {map} from 'rxjs/operators';
 import {ContactProvider} from '../interfaces/contact-provider';
@@ -15,6 +15,12 @@ export class ContactHttpService implements ContactProvider {
 
   constructor(private httpClient: HttpClient) {
     this.url = environment.apiEndpointUrl + '/contacts';
+  }
+
+  search(name: string): Observable<Contact[]> {
+    return this.httpClient.get(this.url + '?q=' + name).pipe(map (response => {
+      return response as Contact[];
+    }));
   }
 
   get(): Observable<Contact[]> {
